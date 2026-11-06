@@ -1,0 +1,2 @@
+import {Shell} from '@/components/site';
+export default async function DetailBerita({params}:{params:Promise<{slug:string}>}){const {slug}=await params;return <Shell><section className="section"><div className="container max-w-3xl"><div className="eyebrow">Berita Madrasah</div><h1 className="mt-4 text-4xl font-black text-[#073f32]">Artikel: {slug.replaceAll('-',' ')}</h1><p className="muted mt-5">Artikel belum tersedia. Silakan kembali ke halaman berita atau hubungi administrator madrasah.</p></div></section></Shell>}

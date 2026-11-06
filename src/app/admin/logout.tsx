@@ -1,0 +1,1 @@
+\"use client\";import {createClient} from '@/lib/supabase/client';import {useRouter} from 'next/navigation';export function Logout(){const r=useRouter();return <button onClick={async()=>{await createClient().auth.signOut();r.push('/admin/login')}} className="rounded-md border border-white/40 px-4 py-2 text-sm">Keluar</button>}

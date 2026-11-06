@@ -1,0 +1,3 @@
+import {NextResponse} from 'next/server';
+import {createClient} from '@/lib/supabase/server';
+export async function POST(req:Request){try{const b=await req.json();if(!b.nama||!b.email||!b.pesan)return NextResponse.json({error:'Lengkapi semua kolom.'},{status:400});const s=await createClient();const {error}=await s.from('visitor_messages').insert({name:b.nama,email:b.email,message:b.pesan});if(error)throw error;return NextResponse.json({ok:true});}catch{return NextResponse.json({error:'Database belum dikonfigurasi.'},{status:500});}}
